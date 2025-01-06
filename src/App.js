@@ -10,8 +10,10 @@ import wowBusStore from "./store/wowBusStore";
 const WowBusAppLayout = () => {
   return (
     <Provider store={wowBusStore}>
-      <div>
-        <WowBusHeaderComponent />
+      <div className="bg-gradient-to-b from-blue-100 to-blue-200">
+        <div>
+          <WowBusHeaderComponent />
+        </div>
         <Outlet />
       </div>
     </Provider>
