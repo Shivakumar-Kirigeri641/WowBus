@@ -4,21 +4,39 @@ const routedataSlice = createSlice({
   name: "routedata",
   initialState: {
     sourceid: 0,
+    destinationid: 0,
     mainroutelist: [],
-    destinationroutelist: [],
+    templist: [],
+    sourcedestinationmapperlist: [],
+    destinationroutemapperlist: [],
   },
   reducers: {
+    setDestinationId: (state, action) => {
+      state.destinationid = action.payload;
+    },
     setSourceId: (state, action) => {
       state.sourceid = action.payload;
-      state.destinationroutelist = state.mainroutelist.filter(
-        (x) => x.id == state.sourceid
+      state.destinationroutemapperlist =
+        state.sourcedestinationmapperlist.filter(
+          (x) => x.origin.id == action.payload
+        );
+      state.destinationroutemapperlist = state.destinationroutemapperlist.map(
+        (x) => ({ id: x.destination.id, name: x.destination.name })
       );
-      //console.log(destinationroutelist);
+      console.log(state.destinationroutemapperlist);
     },
     setMainRouteList: (state, action) => {
       state.mainroutelist = action.payload;
     },
+    setsourcedestinationmapperlist: (state, action) => {
+      state.sourcedestinationmapperlist = action.payload;
+    },
   },
 });
-export const { setSourceId, setMainRouteList } = routedataSlice.actions;
+export const {
+  setSourceId,
+  setMainRouteList,
+  setsourcedestinationmapperlist,
+  setDestinationId,
+} = routedataSlice.actions;
 export default routedataSlice.reducer;

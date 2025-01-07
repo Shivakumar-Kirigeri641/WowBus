@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import isValidRouteSelected from "../utils/isValidRouteSelected";
 import { useDispatch, useSelector } from "react-redux";
-import { setDestinationId, setSourceId } from "../store/routedataSlice";
-const WowBusEnterSourceComponent = ({ data }) => {
+import { setDestinationId } from "../store/routedataSlice";
+const WowBusEnterDestinationComponent = () => {
   const dispatch = useDispatch();
+  const data = useSelector(
+    (store) => store.routedata.destinationroutemapperlist
+  );
   const [searchtext, setsearchtext] = useState("");
   const [showSuggessions, setshowSuggessions] = useState(false);
   const [IsValidRoute, setIsValidRoute] = useState(true);
@@ -28,12 +31,12 @@ const WowBusEnterSourceComponent = ({ data }) => {
   return (
     <div ref={autoCompleteRef} className="p-3">
       <div>
-        <div className="p-2">Source:</div>
+        <div className="p-2">Destination:</div>
         <input
-          className="relative m-2 p-2 w-full rounded-lg bg-gradient-to-b from-yellow-100 to-yellow-200 outline-none border-2 border-gray-300 hover:border-3 hover:border-gray-400 hover:bg-gradient-to-t"
+          className="m-2 p-2 w-full rounded-lg bg-gradient-to-b from-yellow-100 to-yellow-200 outline-none border-2 border-gray-300 hover:border-3 hover:border-gray-400 hover:bg-gradient-to-t"
           type="text"
           value={searchtext}
-          placeholder="Where you get-in?"
+          placeholder="Where you drop-off?"
           onChange={(e) => {
             setsearchtext(e.target.value);
             if ("" == e.target.value) {
@@ -47,7 +50,7 @@ const WowBusEnterSourceComponent = ({ data }) => {
                   route.name.toLowerCase() == e.target.value.toLowerCase()
               );
               if (routeidlist.length > 0) {
-                dispatch(setSourceId(routeidlist[0].id));
+                dispatch(setDestinationId(routeidlist[0].id));
               } else {
                 setIsValidRoute(false);
               }
@@ -62,11 +65,11 @@ const WowBusEnterSourceComponent = ({ data }) => {
         ></input>
         {!IsValidRoute && (
           <div className="text-sm font-semibold text-red-600">
-            Invalid source
+            Invalid Destination
           </div>
         )}
         {showSuggessions && (
-          <div className="absolute border-2 border-gray-300 rounded-md mx-2 bg-gradient-to-b w-fit from-yellow-100 to-yellow-200">
+          <div className="border-2 border-gray-300 rounded-md mx-2 w-full bg-gradient-to-b from-yellow-100 to-yellow-200">
             <ul className="">
               {suggessions.map((x) => (
                 <li
@@ -80,7 +83,7 @@ const WowBusEnterSourceComponent = ({ data }) => {
                       (route) =>
                         route.name.toLowerCase() == x.name.toLowerCase()
                     );
-                    dispatch(setSourceId(routeidlist[0].id));
+                    dispatch(setDestinationId(routeidlist[0].id));
                   }}
                 >
                   {x.name}
@@ -93,4 +96,4 @@ const WowBusEnterSourceComponent = ({ data }) => {
     </div>
   );
 };
-export default WowBusEnterSourceComponent;
+export default WowBusEnterDestinationComponent;
