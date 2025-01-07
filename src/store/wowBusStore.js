@@ -1,9 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import wowBusSliceReducer from "./wowBusSlice";
-
+import routedataReducer from "./routedataSlice";
 const wowBusStore = configureStore({
   reducer: {
-    wowBusSlice: wowBusSliceReducer,
+    routedata: routedataReducer,
   },
 });
 export default wowBusStore;

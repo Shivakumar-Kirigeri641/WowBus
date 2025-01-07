@@ -15,43 +15,49 @@ const WowBusHeaderComponent = () => {
 
       {/*title */}
       <div>
-        <h2 className="text-2xl italic font-semibold p-2 m-2">Main Title</h2>
+        <h2 className="text-2xl italic font-semibold p-2 m-2">
+          Welcome to{" "}
+          <span className="text-2xl text-blue-600 font-bold">
+            WOW BUS RESERVATION
+          </span>
+        </h2>
+        <h3 className="italic text-purple-600 font-bold text-center pb-2">
+          A perfect spot for your journey
+        </h3>
       </div>
 
       {/*navigation */}
       <div className="px-2">
-        <ul className="px-5">
-          <Link
-            className="p-2 mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
-            to="/"
-          >
-            Home
-          </Link>
-          <Link
-            className="p-2 mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
-            to="/busschedules"
-          >
-            Bus schedules
-          </Link>
-          <Link
-            className="p-2 mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
-            to="/managebooking"
-          >
-            Manage booking
-          </Link>
-          <Link
-            className="p-2 mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
-            to="/contactus"
-          >
-            Contact us
-          </Link>
-          <Link
-            className="p-2 mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
-            to="/about"
-          >
-            About
-          </Link>
-        </ul>
+        <Link
+          className="w-10 px-8 pb-3 pt-3 mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
+          to="/"
+        >
+          Home
+        </Link>
+        <Link
+          className="px-8 pb-3 pt-3  mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
+          to="/busschedules"
+        >
+          Bus schedules
+        </Link>
+        <Link
+          className="px-8 pb-3 pt-3  mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
+          to="/managebooking"
+        >
+          Manage booking
+        </Link>
+        <Link
+          className="px-8 pb-3 pt-3  mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
+          to="/contactus"
+        >
+          Contact us
+        </Link>
+        <Link
+          className="px-8 pb-3 pt-3  mx-2 border-gray-400 shadow-lg rounded-lg font-semibold cursor-pointer hover:border-b-2"
+          to="/about"
+        >
+          About
+        </Link>
       </div>
     </div>
   );
