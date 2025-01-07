@@ -18,12 +18,11 @@ const routedataSlice = createSlice({
       state.sourceid = action.payload;
       state.destinationroutemapperlist =
         state.sourcedestinationmapperlist.filter(
-          (x) => x.origin.id == action.payload
+          (x) => x.origin.id === action.payload && null !== x.destination.name
         );
       state.destinationroutemapperlist = state.destinationroutemapperlist.map(
         (x) => ({ id: x.destination.id, name: x.destination.name })
       );
-      console.log(state.destinationroutemapperlist);
     },
     setMainRouteList: (state, action) => {
       state.mainroutelist = action.payload;

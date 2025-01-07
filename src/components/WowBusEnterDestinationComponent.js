@@ -7,13 +7,14 @@ const WowBusEnterDestinationComponent = () => {
   const data = useSelector(
     (store) => store.routedata.destinationroutemapperlist
   );
+
   const [searchtext, setsearchtext] = useState("");
   const [showSuggessions, setshowSuggessions] = useState(false);
   const [IsValidRoute, setIsValidRoute] = useState(true);
+  const autoCompleteRef = useRef();
   const suggessions = data.filter((x) =>
     x.name.toLowerCase().includes(searchtext.toLowerCase())
   );
-  const autoCompleteRef = useRef();
   useEffect(() => {
     const HandleOutSideClick = (e) => {
       if (

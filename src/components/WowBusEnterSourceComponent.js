@@ -66,7 +66,7 @@ const WowBusEnterSourceComponent = ({ data }) => {
           </div>
         )}
         {showSuggessions && (
-          <div className="absolute border-2 border-gray-300 rounded-md mx-2 bg-gradient-to-b w-fit from-yellow-100 to-yellow-200">
+          <div className="absolute border-2 border-gray-300 rounded-md mx-2 bg-gradient-to-b w-fit from-yellow-100 to-yellow-200 overflow-scroll h-[30%]">
             <ul className="">
               {suggessions.map((x) => (
                 <li
